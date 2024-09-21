@@ -14,7 +14,7 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
 import "@solana/wallet-adapter-react-ui/styles.css";
-
+import { Airdrop } from './components/Airdrop';
 
 function App() {
   const network = WalletAdapterNetwork.Devnet;
@@ -22,13 +22,17 @@ function App() {
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
   return (
-    <ConnectionProvider endpoint={endpoint}>
+    //we need to provide solana devnet rpc url
+
+    
+    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <WalletMultiButton />
             <WalletDisconnectButton />
           </div>
+          <Airdrop></Airdrop>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
