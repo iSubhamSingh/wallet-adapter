@@ -23,8 +23,6 @@ function App() {
 
   return (
     //we need to provide solana devnet rpc url
-
-    
     <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
