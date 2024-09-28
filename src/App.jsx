@@ -23,7 +23,7 @@ function App() {
 
   return (
     //we need to provide solana devnet rpc url
-    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+    <ConnectionProvider endpoint={process.env.RPC_URL}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
