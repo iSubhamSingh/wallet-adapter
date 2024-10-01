@@ -19,11 +19,11 @@ import { Airdrop } from './components/Airdrop';
 function App() {
   const network = WalletAdapterNetwork.Devnet;
 
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const endpoint = useMemo(() => process.env.REACT_APP_RPC_URL || clusterApiUrl(network), [network]);
 
   return (
     //we need to provide solana devnet rpc url
-    <ConnectionProvider endpoint={process.env.RPC_URL}>
+    <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
